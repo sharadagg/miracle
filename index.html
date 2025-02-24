@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Message Templates</title>
+    <style>
+        .whatsapp-chat {
+            width: 320px;
+            background: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-family: Arial, sans-serif;
+        }
+        .chat-background {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .message-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .message {
+            max-width: 75%;
+            padding: 8px 12px;
+            border-radius: 10px;
+            margin: 5px 0;
+            font-size: 14px;
+            cursor: pointer;
+            user-select: text;
+        }
+        .received {
+            background: #fff;
+            align-self: flex-start;
+        }
+        .sent {
+            background: #dcf8c6;
+            align-self: flex-end;
+            text-align: right;
+        }
+        .copy-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+    </style>
+    <script>
+        function copyMessage(button) {
+            const messageText = button.previousElementSibling.innerText;
+            navigator.clipboard.writeText(messageText).then(() => {
+                alert("Message copied to clipboard!");
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="whatsapp-chat">
+        <div class="chat-background">
+            <div class="message-container">
+                <div class="message received">Hello! How can I help you?</div>
+                <button class="copy-btn" onclick="copyMessage(this)">📋</button>
+            </div>
+            <div class="message-container">
+                <div class="message sent">I want to know more about the event.</div>
+                <button class="copy-btn" onclick="copyMessage(this)">📋</button>
+            </div>
+            <div class="message-container">
+                <div class="message received">Sure! Here are the details: <br>📅 Date: Jan 20th <br>📍 Location: Online</div>
+                <button class="copy-btn" onclick="copyMessage(this)">📋</button>
+            </div>
+            <div class="message-container">
+                <div class="message sent">Thank you! 🙌</div>
+                <button class="copy-btn" onclick="copyMessage(this)">📋</button>
+            </div>
+        </div>
+    </div>
+    <br>
+</body>
+</html>
